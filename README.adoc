@@ -1,0 +1,53 @@
+# How easy is it to start with MeteorJS
+
+## first steps
+. First of all, install meteor.
+It is as easy as:
+
+ curl https://install.meteor.com/ | sh
+
+. then clone the current repo
+
+. start meteor from within the project directory
+
+  meteor
+
+## final step: you will participate
+This example is a very simple chat application that comes with:
+
+- user authentication
+- no security (incecure and autopublish is not removed)
+- raw message's timestamp displayed
+- no css
+
+### So lets format the timestamp
+
+We are going to use the `momentjs` lib to format the timestamp. To do so, just add the lib:
+
+  meteor add momentjs:moment
+
+then uncomment the `input` template helper section in `main.js`
+and let meteor rebuild and *livereload* the changes.
+
+### we can beautify the app by using bootstrap
+
+Very simple to add bootstrap to our application:
+
+  meteor add twbs:bootstrap
+
+## about MeteorJS
+### Naming convention
+
+There is no naming convention. You can name your file as you want, Meteor will load them.
+
+### Structuring your files
+
+All files are available from client and server.
+
+`public` folder is for static files.
+
+You can put your frontend files in a `client` folder.
+
+Same way, put your backend only files in a `server`folder.
+
+Otherwise use `Meteor.isClient` and `Meteor.isServer` to isolate execution context.

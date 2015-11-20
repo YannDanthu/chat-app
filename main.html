@@ -1,0 +1,61 @@
+<head>
+  <title>chat</title>
+</head>
+
+<body>
+  <div class="col-md-4">
+
+    <h1>Chat application</h1>
+
+    <!-- meteor add accounts-password accounts-ui -->
+    {{> loginButtons}}
+
+    <div class="panel panel-info">
+      <div class="panel-heading"> Conversation </div>
+
+      <div class="panel-body">
+        <!-- message list template -->
+        {{> messages}}
+      </div>
+
+      <!-- input msg template -->
+      {{> input}}
+
+    </div>
+  </div>
+</body>
+
+
+
+<!-- message list template. You can put in a separate file (see input.html) -->
+<template name="messages">
+
+  <div id="messageList" class="fixed-panel">
+    <ul class="media-list">
+    <!-- define a template helper for messages -->
+    {{#each messages}}
+      <!-- display current message  -->
+      {{> message}}
+    {{/each}}
+    </ul>
+  </div>
+
+</template>
+
+
+<!-- input msg template. You can put the template in a separate file (see input.html) -->
+<template name="message">
+  <li class="media">
+    <div id="message" class="media-body">
+      <div class="media">
+        <a class="pull-left" href="#">
+            <img class="media-object img-circle " src="{{avatar}}" width="48px"/>
+        </a>
+        <div class="media-body">
+          <div>{{text}}</div>
+          <div><small class="text-muted">{{owner}} | {{timestamp}}</small></div>
+        </div>
+      </div>
+    </div>
+  </li>
+</template>
